@@ -1570,7 +1570,7 @@ local v4 = v2.NewToggle("Anti AFK", function(v94)
 end);
 local v1 = Window.NewTab("Local OC");
 local v2 = v1.NewSection("Be Creative");
-local v81 = Section.NewButton("Horns+Ears", function()
+local v81 = v1.NewButton("Horns+Ears", function()
 	local FlatIdent_6038 = 0;
 	local R;
 	local MK1;
