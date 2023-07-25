@@ -1570,44 +1570,26 @@ local v4 = v2.NewToggle("Anti AFK", function(v94)
 end);
 local v1 = Window.NewTab("Local OC");
 local v2 = v1.NewSection("Be Creative");
-local v3 = v2.NewButton("Horns+Ears", function()
-	local FlatIdent_6038 = 0;
-	local R;
-	local MK1;
-	local AC;
-	local fluff;
-	while true do
-		if (FlatIdent_6038 == 1) then
-			fluff = {};
-			for _, v in next, game("Players").LocalPlayer.Character:children() do
-				if (v("BasePart") and (v.Name("Dragon") or v.Name("Ear") or table.find(fluff, v.Name))) then
-					MK1:FireServer("Fluff", v.Name, 0);
-				elseif ((v.Name == "EarFluff") or (v.Name == "Claws") or v.Name("Paw") or (v.Name == "Pads")) then
-					MK1:FireServer("Fluff", v.Name, 1);
-				end
-			end
-			FlatIdent_6038 = 2;
-		end
-		if (FlatIdent_6038 == 0) then
-			R = game:GetService("ReplicatedStorage");
-			MK1, AC = R.MasterKey, R.Accessories;
-			FlatIdent_6038 = 1;
-		end
-		if (3 == FlatIdent_6038) then
-			for _, v in next, game("Players").LocalPlayer.Character:children() do
-				if (v("BasePart") and ((v.Name == "EarFluff") or (v.Name == "Claws") or v.Name("Paw") or (v.Name == "Pads"))) then
-					MK1:FireServer("Fluff", v.Name, 1);
-				end
-			end
-			break;
-		end
-		if (FlatIdent_6038 == 2) then
-			R = game:GetService("ReplicatedStorage");
-			MK1, AC = R.MasterKey, R.Accessories;
-			FlatIdent_6038 = 3;
-		end
-	end
-end);
+local Button = v2.NewButton("Horns+Ears",function()
+    local R = game:GetService("ReplicatedStorage")
+    local MK1, AC = R.MasterKey, R.Accessories
+    local fluff = {}
+    for _,v in next,game:service'Players'.LocalPlayer.Character:children()do
+        if v:IsA'BasePart'and (v.Name:find'Dragon'or v.Name:find'Ear'or table.find(fluff,v.Name))then
+            MK1:FireServer("Fluff", v.Name, 0) --   |  1 - invisible  |  0 - visible  | 
+        elseif v.Name=='EarFluff'or v.Name=='Claws'or v.Name:find'Paw'or v.Name=='Pads' then
+            MK1:FireServer('Fluff', v.Name, 1)
+        end
+    end
+    
+    local R = game:GetService("ReplicatedStorage")
+    local MK1, AC = R.MasterKey, R.Accessories
+    for _,v in next,game:service'Players'.LocalPlayer.Character:children()do
+        if v:IsA'BasePart'and (v.Name=='EarFluff'or v.Name=='Claws'or v.Name:find'Paw'or v.Name=='Pads')then
+            MK1:FireServer("Fluff", v.Name, 1)
+        end
+    end
+end)
 local v10 = v2.Newtextbox("Material (Is case sensitive!)", function(v100, v101)
 	_G.Je2 = v101;
 end);
