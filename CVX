@@ -1570,7 +1570,7 @@ local v4 = v2.NewToggle("Anti AFK", function(v94)
 end);
 local v1 = Window.NewTab("Local OC");
 local v2 = v1.NewSection("Be Creative");
-local v81 = v1.NewButton("Horns+Ears", function()
+local v3 = v2.NewButton("Horns+Ears", function()
 	local FlatIdent_6038 = 0;
 	local R;
 	local MK1;
@@ -3151,20 +3151,18 @@ local v2 = v1.NewSection("Color Fade Shit");
 _G.Wolf4Fade = false;
 local frequency = 0.5;
 local amplitude = 0.5;
-local offset1 = {_G.D,_G.D2,_G.D3};
-local offset2 = {_G.E,_G.E2,_G.E3};
-local offset3 = {_G.G,_G.G2,_G.G3};
-local offset4 = {_G.H,_G.H2,_G.H3};
-local offset5 = {_G.I,_G.I2,_G.I3};
-local offset6 = {_G.J,_G.J2,_G.J3};
+local v201 = {_G.D,_G.D2,_G.D3};
+local v202 = {_G.E,_G.E2,_G.E3};
+local v203 = {_G.G,_G.G2,_G.G3};
+local v204 = {_G.H,_G.H2,_G.H3};
+local v205 = {_G.I,_G.I2,_G.I3};
+local v206 = {_G.J,_G.J2,_G.J3};
 local transitionTime = _G.D1 or 6;
 local RS = game:GetService("ReplicatedStorage");
 local mk1 = RS:FindFirstChild("MasterKey");
-local colors = {offset1,offset2,offset3,offset4,offset5,offset6};
-local colors2 = {offset6,offset1,offset2,offset3,offset4,offset5};
-local numColors = #colors;
-local numColors2 = #colors2;
-local EnabledToggle = Section.NewToggle("Custom RGB4 Name/Wolf/Particles!", function(bool)
+local v34 = {v201,v202,v203,v204,v205,v206};
+local numColors = #v34;
+local EnabledToggle = v2.NewToggle("Custom RGB4 Name/Wolf/Particles!", function(bool)
 	if _G.Wolf4Fade then
 		local FlatIdent_8AD85 = 0;
 		while true do
@@ -3221,8 +3219,8 @@ local EnabledToggle = Section.NewToggle("Custom RGB4 Name/Wolf/Particles!", func
 							FlatIdent_6A77C = 1;
 						end
 						if (FlatIdent_6A77C == 1) then
-							color1 = colors[colorIndex];
-							color2 = colors[(colorIndex % numColors) + 1];
+							color1 = v34[colorIndex];
+							color2 = v34[(colorIndex % numColors) + 1];
 							red = math.floor((color1[1] * (1 - transitionRatio)) + (color2[1] * transitionRatio));
 							green = math.floor((color1[2] * (1 - transitionRatio)) + (color2[2] * transitionRatio));
 							FlatIdent_6A77C = 2;
